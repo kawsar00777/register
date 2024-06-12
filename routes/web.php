@@ -22,6 +22,6 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('admin/dashboard', [HomeController::class, 'adminindex']);
-Route::get('subadmin/dashboard', [HomeController::class, 'subadminindex']);
-Route::get('user/dashboard', [HomeController::class, 'userindex']);
+Route::get('admin/dashboard', [HomeController::class, 'adminindex'])->middleware(['auth','admin']);
+Route::get('subadmin/dashboard', [HomeController::class, 'subadminindex'])->middleware(['auth','subadmin']);
+Route::get('user/dashboard', [HomeController::class, 'userindex'])->middleware(['auth','user']);
