@@ -16,6 +16,12 @@ return Application::configure(basePath: dirname(__DIR__))
             'subadmin' =>App\Http\Middleware\SubAdmin::class,
             'user' =>App\Http\Middleware\User::class,
         ]);
+        $middleware->alias([
+            'issuperadmin' =>App\Http\Middleware\SuperAdminAuthentication::class,
+            'isadmin' =>App\Http\Middleware\AdminAuthentication::class,
+            'issubadmin' =>App\Http\Middleware\SubAdminAuthentication::class,
+            'isuser' =>App\Http\Middleware\UserAuthentication::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
